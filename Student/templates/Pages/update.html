@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Record</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fffde7, #e8f5e9);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 35px 45px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2e6b7d;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            border-color: #2e7d32;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #2e3c7d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1b4c5e;
+        }
+
+        .error-message {
+            margin-top: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Update Student Record</h2>
+        <form action="/update/" method="post">
+            {% csrf_token %}
+            <label for="rollno">Enter RollNo:</label>
+            <input type="number" name="rollno" id="rollno">
+
+            <label for="name">Enter Name:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="cmarks">Enter Cmark:</label>
+            <input type="number" name="cmark" id="cmarks">
+
+            <label for="cppmarks">Enter Cppmark:</label>
+            <input type="number" name="cppmark" id="cppmarks">
+
+            <label for="pymarks">Enter Pymark:</label>
+            <input type="number" name="pythonmark" id="pymarks">
+
+            <input type="submit" value="Update Record">
+        </form>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

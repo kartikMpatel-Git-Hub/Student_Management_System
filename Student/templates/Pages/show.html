@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 3 Students</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #e3f2fd, #fce4ec);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1976d2;
+            color: white;
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f8e9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/select/" method="post">
+            {% csrf_token %}
+            <h2>Top 3 Students</h2>
+            {% if records %}
+            <table>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>C Marks</th>
+                    <th>Cpp Marks</th>
+                    <th>Python Marks</th>
+                    <th>Total</th>
+                </tr>
+                {% for i in records %}
+                <tr>
+                    <td>{{ i.0 }}</td>
+                    <td>{{ i.1 }}</td>
+                    <td>{{ i.2 }}</td>
+                    <td>{{ i.3 }}</td>
+                    <td>{{ i.4 }}</td>
+                    <td>{{ i.5 }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>

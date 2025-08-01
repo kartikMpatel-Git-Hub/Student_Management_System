@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f2f1, #f1f8e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu-container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button-group a button {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .button-group a button:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-insert {
+            background-color: #0288d1;
+        }
+
+        .btn-update {
+            background-color: #43a047;
+        }
+
+        .btn-delete {
+            background-color: #e53935;
+        }
+
+        .btn-select {
+            background-color: #f9a825;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <h1>Menu</h1>
+        <div class="button-group">
+            <a href="{% url 'insert' %}"><button class="btn-insert" type="button">Insert</button></a>
+            <a href="{% url 'update' %}"><button class="btn-update" type="button">Update</button></a>
+            <a href="{% url 'delete' %}"><button class="btn-delete" type="button">Delete</button></a>
+            <a href="{% url 'show' %}"><button class="btn-select" type="button">Top 3</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
